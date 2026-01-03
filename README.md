@@ -46,6 +46,39 @@ Next steps
 - Replace `hello@example.com` and the WhatsApp number with real contact details.
 - Add analytics, a lead capture form, or a deployment pipeline (Netlify, Vercel, GitHub Pages).
 
+## React / Next.js Migration Notes
+
+This project was migrated to Next.js (App Router) to enable an incremental React migration while preserving existing functionality.
+
+- Run locally:
+
+```bash
+cd Logix-Control
+npm install
+npm run dev
+```
+
+- Production build:
+
+```bash
+npm run build
+npm start
+```
+
+- Important environment variables (set in Vercel or local env):
+
+  - `BREVO_API_KEY` — Brevo API key (server-side only)
+  - `BREVO_LIST_ID` — Brevo list numeric id
+  - `NEWSLETTER_PROVIDER` — optional (defaults to `brevo`)
+
+- Serverless API routes were preserved under `/app/api`:
+
+  - `/api/subscribe` — proxies signups to Brevo (must remain server-side; no secrets in client)
+  - `/api/contact` — accepts contact submissions and appends to `data/contacts.jsonl` (note: serverless FS may be ephemeral on some hosts)
+
+- What's next:
+  - Incrementally replace DOM-based JS in `script.js` with React components/state (carousel, modal) — the newsletter flow is already ported to a React component.
+
 Run with lightweight backend
 
 1. Install dependencies (Node.js 16+ recommended):
