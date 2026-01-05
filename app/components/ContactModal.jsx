@@ -55,14 +55,12 @@ export default function ContactModal({ open, onClose }) {
       form.reportValidity();
       return;
     }
+    // Send a minimal, explicit payload for contact requests only.
     const data = {
       name: form.name.value.trim(),
-      company: form.company.value.trim(),
       email: form.email.value.trim(),
       phone: form.phone.value.trim(),
       message: form.message.value.trim(),
-      source: window.location.href,
-      timestamp: new Date().toISOString(),
     };
     setLoading(true);
     try {
