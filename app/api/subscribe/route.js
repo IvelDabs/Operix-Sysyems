@@ -1,3 +1,5 @@
+process.env.BREVO_API_KEY;
+process.env.BREVO_LIST_ID;
 import fs from "fs";
 
 export async function POST(req) {

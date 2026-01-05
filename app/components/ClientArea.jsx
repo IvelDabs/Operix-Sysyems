@@ -1,11 +1,11 @@
-"use client"
-import Carousel from './Carousel'
+"use client";
+import Carousel from "./Carousel";
 
 export default function ClientArea() {
   // When the Carousel 'book' CTA is clicked, dispatch a global event
   function handleBook() {
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('open-contact-modal'))
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("open-contact-modal"));
     }
   }
 
@@ -15,5 +15,5 @@ export default function ClientArea() {
         <Carousel onBook={handleBook} />
       </section>
     </>
-  )
+  );
 }

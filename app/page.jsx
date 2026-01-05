@@ -2,7 +2,9 @@ import dynamic from "next/dynamic";
 const ClientArea = dynamic(() => import("./components/ClientArea"), {
   ssr: false,
 });
-const FooterArea = dynamic(() => import("./components/FooterArea"), { ssr: false });
+const FooterArea = dynamic(() => import("./components/FooterArea"), {
+  ssr: false,
+});
 // Client UI is mounted dynamically via ClientArea (ssr: false)
 
 function Nav() {
